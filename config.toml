@@ -1,4 +1,4 @@
-base_url = "https://samuelpx.github.io/bricklaying"
+base_url = "bricklaying.art"
 title = "bricklaying"
 description = "can the heart beat without the soul?"
 compile_sass = true
