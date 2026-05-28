@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://bricklaying.art/</loc>
+        <loc>https://bricklaying.art/</loc>
     </url>
     <url>
-        <loc>http://bricklaying.art/about/</loc>
+        <loc>https://bricklaying.art/about/</loc>
     </url>
     <url>
-        <loc>http://bricklaying.art/curated-content/</loc>
+        <loc>https://bricklaying.art/curated-content/</loc>
     </url>
     <url>
-        <loc>http://bricklaying.art/posts/</loc>
+        <loc>https://bricklaying.art/posts/</loc>
     </url>
     <url>
-        <loc>http://bricklaying.art/posts/intro/</loc>
+        <loc>https://bricklaying.art/posts/intro/</loc>
         <lastmod>2026-05-28</lastmod>
     </url>
 </urlset>
