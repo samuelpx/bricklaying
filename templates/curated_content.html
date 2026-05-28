@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Curated Content &mdash; {{ config.title }}{% endblock title %}
+
+{% block content %}
+{% set data = load_data(path="data/curated.toml") %}
+<article>
+  <header class="post-header">
+    <h1>{{ page.title }}</h1>
+  </header>
+  <div class="post-content">
+    {{ page.content | safe }}
+    <div class="collage-grid-a">
+      {% for item in data.items %}
+        <div class="collage-item{% if item.span %} span-2{% endif %}">
+
+          {% if item.type == "link" %}
+            <a href="{{ item.url }}">{{ item.title }}</a>
+            {% if item.note %}<p>{{ item.note }}</p>{% endif %}
+
+          {% elif item.type == "quote" %}
+            <p class="collage-quote">{{ item.text }}</p>
+            {% if item.credit %}
+              <p class="collage-credit">
+                {% if item.credit_url %}
+                  &mdash; <a href="{{ item.credit_url }}">{{ item.credit }}</a>
+                {% else %}
+                  &mdash; {{ item.credit }}
+                {% endif %}
+              </p>
+            {% endif %}
+
+          {% elif item.type == "image" %}
+            <img src="{{ item.src }}" alt="{{ item.alt }}">
+            {% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
+
+          {% elif item.type == "text" %}
+            <p>{{ item.text }}</p>
+
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</article>
+{% endblock content %}

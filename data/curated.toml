@@ -1,0 +1,57 @@
+# Each item needs a `type` field. Available types:
+#
+# type = "link"
+#   title   = "Display text for the link"         (required)
+#   url     = "https://..."                        (required)
+#   note    = "Short description below the link"  (optional)
+#   span    = true                                 (optional — makes card twice as wide)
+#
+# type = "quote"
+#   text       = "The quote itself"                (required)
+#   credit     = "Author or source name"           (optional)
+#   credit_url = "https://..."                     (optional — makes credit a link)
+#   span       = true                              (optional)
+#
+# type = "image"
+#   src     = "/images/filename.jpg"               (required — put files in static/images/)
+#   alt     = "Description for accessibility"      (required)
+#   caption = "Text shown below the image"         (optional)
+#   span    = true                                 (optional)
+#
+# type = "text"
+#   text    = "A standalone paragraph or note"     (required)
+#   span    = true                                 (optional)
+
+[[items]]
+type  = "link"
+title = "The Mushroom at the End of the World"
+url   = "#"
+note  = "On the possibility of life in capitalist ruins. Anna Tsing at her most patient."
+span  = true
+
+[[items]]
+type  = "link"
+title = "Hauntology and the Lost Future"
+url   = "#"
+note  = "Mark Fisher on why culture stopped being able to imagine forward."
+
+[[items]]
+type       = "quote"
+text       = "The map is not the territory, but we keep dying on the map."
+credit     = "Alfred Korzybski"
+credit_url = "#"
+
+[[items]]
+type  = "link"
+title = "Bricklaying as Meditation"
+url   = "#"
+note  = "A short essay on repetitive labour and the dissolution of self."
+
+[[items]]
+type = "image"
+src  = "/images/sample.jpg"
+alt  = "a fragment"
+
+[[items]]
+type = "text"
+text = "Something overheard in a waiting room that hasn't left me since."

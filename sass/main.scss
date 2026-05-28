@@ -303,6 +303,83 @@ html, body {
   }
 }
 
+// ── Curated Content collage ───────────────────────────────────────────────────
+
+.collage-intro {
+  text-align: center;
+  color: mix($text, $bg, 60%);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+// Shared card base
+.collage-grid-a, .collage-grid-b, .collage-columns-c {
+  .collage-item {
+    img {
+      width: 100%;
+      display: block;
+      filter: grayscale(30%) sepia(20%);
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      font-family: 'VT323', monospace;
+      font-size: 1.4rem;
+      color: $accent;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: block;
+      margin-bottom: 0.3rem;
+      &:hover { color: $highlight; }
+    }
+
+    p {
+      margin: 0.4rem 0 0;
+      font-size: 0.88rem;
+      color: darken($text, 15%);
+      line-height: 1.5;
+    }
+  }
+}
+
+// A — Grid
+.collage-grid-a {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+
+  .collage-item {
+    background: $surface;
+    border: 1px solid $border;
+    border-top: 3px solid $blood;
+    padding: 1rem 1.2rem;
+
+    &.span-2 { grid-column: span 2; }
+  }
+}
+
+.collage-quote {
+  font-style: italic;
+  color: mix($text, $bg, 70%);
+  border-left: 2px solid $blood;
+  padding-left: 0.6rem;
+  margin: 0 0 0.3rem;
+}
+
+.collage-credit {
+  font-size: 0.8rem;
+  color: mix($text, $bg, 50%);
+  margin: 0;
+  padding-left: 0.6rem;
+
+  a {
+    color: mix($accent, $bg, 70%);
+    text-decoration: none;
+    &:hover { color: $accent; }
+  }
+}
+
 // ── Footer ────────────────────────────────────────────────────────────────────
 
 .site-footer {
