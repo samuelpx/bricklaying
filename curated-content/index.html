@@ -46,65 +46,6 @@
 
     <div class="collage-grid-a">
       
-        <div class="collage-item span-2">
-
-          
-            <a href="#">The Mushroom at the End of the World</a>
-            <p>On the possibility of life in capitalist ruins. Anna Tsing at her most patient.</p>
-
-          
-        </div>
-      
-        <div class="collage-item">
-
-          
-            <a href="#">Hauntology and the Lost Future</a>
-            <p>Mark Fisher on why culture stopped being able to imagine forward.</p>
-
-          
-        </div>
-      
-        <div class="collage-item">
-
-          
-            <p class="collage-quote">The map is not the territory, but we keep dying on the map.</p>
-            
-              <p class="collage-credit">
-                
-                  &mdash; <a href="#">Alfred Korzybski</a>
-                
-              </p>
-            
-
-          
-        </div>
-      
-        <div class="collage-item">
-
-          
-            <a href="#">Bricklaying as Meditation</a>
-            <p>A short essay on repetitive labour and the dissolution of self.</p>
-
-          
-        </div>
-      
-        <div class="collage-item">
-
-          
-            <img src="&#x2F;images&#x2F;sample.jpg" alt="a fragment">
-            
-
-          
-        </div>
-      
-        <div class="collage-item">
-
-          
-            <p>Something overheard in a waiting room that hasn&#x27;t left me since.</p>
-
-          
-        </div>
-      
     </div>
   </div>
 </article>
@@ -114,6 +55,30 @@
 <footer class="site-footer">
   &copy; 2026 &mdash; bricklaying &mdash; powered by the sempiternal health of experience and zola
 </footer>
+
+
+<audio id="bg-audio" loop preload="auto">
+  <!-- Add tracks here when ready, e.g:
+  <source src="/audio/filename.mp3" type="audio/mpeg">
+  -->
+</audio>
+
+<script>
+  (function() {
+    var audio = document.getElementById('bg-audio');
+    if (!audio.querySelector('source')) return;
+
+    audio.play().catch(function() {
+      function tryPlay() {
+        audio.play().catch(function() {});
+        document.removeEventListener('click', tryPlay);
+        document.removeEventListener('keydown', tryPlay);
+      }
+      document.addEventListener('click', tryPlay);
+      document.addEventListener('keydown', tryPlay);
+    });
+  })();
+</script>
 
 </body>
 </html>

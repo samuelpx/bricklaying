@@ -55,5 +55,29 @@
   &copy; 2026 &mdash; bricklaying &mdash; powered by the sempiternal health of experience and zola
 </footer>
 
+
+<audio id="bg-audio" loop preload="auto">
+  <!-- Add tracks here when ready, e.g:
+  <source src="/audio/filename.mp3" type="audio/mpeg">
+  -->
+</audio>
+
+<script>
+  (function() {
+    var audio = document.getElementById('bg-audio');
+    if (!audio.querySelector('source')) return;
+
+    audio.play().catch(function() {
+      function tryPlay() {
+        audio.play().catch(function() {});
+        document.removeEventListener('click', tryPlay);
+        document.removeEventListener('keydown', tryPlay);
+      }
+      document.addEventListener('click', tryPlay);
+      document.addEventListener('keydown', tryPlay);
+    });
+  })();
+</script>
+
 </body>
 </html>
