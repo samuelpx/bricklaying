@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://bricklaying.art/sitemap.xml
+Sitemap: http://bricklaying.art/sitemap.xml
