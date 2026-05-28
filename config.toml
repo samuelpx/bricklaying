@@ -2,6 +2,8 @@ base_url = "https://bricklaying.art"
 title = "bricklaying"
 description = "can the heart beat without the soul?"
 compile_sass = true
+generate_feed = true
+feed_filenames = ["atom.xml"]
 build_search_index = false
 
 [markdown]
