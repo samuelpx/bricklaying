@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://samuelpx.github.io/bricklaying/sitemap.xml
+Sitemap: bricklaying.art/sitemap.xml
