@@ -1,0 +1,316 @@
+$bg:        #0d0000;
+$surface:   #1a0000;
+$text:      #c8c8c8;
+$blood:     #8b0000;
+$accent:    #cc0000;
+$highlight: #ff2200;
+$border:    #3d0000;
+
+*, *::before, *::after {
+  cursor: url('/cursors/hand.png') 8 0, pointer;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: $bg;
+  color: $text;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+
+.site-header {
+  background: $surface;
+  border-bottom: 3px solid $blood;
+  position: relative;
+  overflow: visible;
+  z-index: 10;
+}
+
+.header-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-title {
+  font-family: 'VT323', 'Courier New', monospace;
+  font-size: 2.8rem;
+  color: $highlight;
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 12px rgba(204, 0, 0, 0.7), 0 0 30px rgba(139, 0, 0, 0.4);
+
+  &:hover {
+    color: lighten($highlight, 10%);
+  }
+}
+
+.site-nav {
+  display: flex;
+  gap: 0;
+
+  a {
+    font-family: 'VT323', 'Courier New', monospace;
+    font-size: 1.4rem;
+    color: $text;
+    text-decoration: none;
+    padding: 0.2rem 0.9rem;
+    border: 1px solid $border;
+    margin-left: 0.5rem;
+    transition: color 0.15s, border-color 0.15s;
+
+    &:hover {
+      color: $highlight;
+      border-color: $blood;
+    }
+  }
+}
+
+// ── Blood drip bar ────────────────────────────────────────────────────────────
+
+.drip-bar {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.drip {
+  position: absolute;
+  top: 0;
+  background: linear-gradient($accent, darken($blood, 8%));
+  border-radius: 0 0 60% 60%;
+  animation: drip ease-in infinite;
+  opacity: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 9px;
+    height: 9px;
+    background: $blood;
+    border-radius: 50%;
+    animation: drip-drop ease-in infinite;
+    animation-duration: inherit;
+    animation-delay: inherit;
+  }
+}
+
+@keyframes drip {
+  0%   { height: 0;    opacity: 0; }
+  8%   { opacity: 1; }
+  65%  { height: 24px; opacity: 1; }
+  85%  { height: 26px; opacity: 0.6; }
+  100% { height: 28px; opacity: 0; transform: translateY(6px); }
+}
+
+@keyframes drip-drop {
+  0%   { transform: translateX(-50%) scale(0); opacity: 0; }
+  60%  { transform: translateX(-50%) scale(0); opacity: 0; }
+  75%  { transform: translateX(-50%) scale(1);  opacity: 1; }
+  100% { transform: translateX(-50%) scale(1.2); opacity: 0; }
+}
+
+// ── Main layout ───────────────────────────────────────────────────────────────
+
+.main-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+// ── Section/page titles ───────────────────────────────────────────────────────
+
+.section-title {
+  font-family: 'VT323', 'Courier New', monospace;
+  font-size: 1.8rem;
+  color: $highlight;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $border;
+  letter-spacing: 0.08em;
+}
+
+// ── Home intro blurb ─────────────────────────────────────────────────────────
+
+.home-intro {
+  border: 1px solid $border;
+  border-left: 3px solid $blood;
+  background: $surface;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: darken($text, 10%);
+}
+
+// ── Post list ─────────────────────────────────────────────────────────────────
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item {
+  border: 1px solid $border;
+  border-left: 3px solid $blood;
+  background: $surface;
+  padding: 0.9rem 1.4rem;
+  margin-bottom: 0.7rem;
+  transition: border-left-color 0.15s;
+
+  &:hover {
+    border-left-color: $highlight;
+  }
+
+  a {
+    font-family: 'VT323', 'Courier New', monospace;
+    font-size: 1.5rem;
+    color: $accent;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+
+    &:hover { color: $highlight; }
+  }
+
+  .post-date {
+    color: mix($text, $bg, 55%);
+    font-size: 0.82rem;
+    margin-top: 0.25rem;
+    font-family: 'Courier New', monospace;
+  }
+
+  .post-summary {
+    margin: 0.4rem 0 0;
+    font-size: 0.9rem;
+    color: darken($text, 15%);
+  }
+}
+
+.all-posts-link {
+  display: inline-block;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  color: $text;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+
+  &:hover { color: $accent; }
+  &::before { content: '>> '; color: $blood; }
+}
+
+// ── Single post ───────────────────────────────────────────────────────────────
+
+.back-link {
+  display: inline-block;
+  font-size: 0.88rem;
+  color: mix($text, $bg, 65%);
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+
+  &::before { content: '< '; color: $blood; }
+  &:hover { color: $text; }
+}
+
+.post-header {
+  border-bottom: 1px solid $border;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-family: 'VT323', 'Courier New', monospace;
+    font-size: 2.4rem;
+    color: $highlight;
+    margin: 0 0 0.4rem;
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+    text-shadow: 0 0 8px rgba(204, 0, 0, 0.5);
+  }
+
+  .post-meta {
+    color: mix($text, $bg, 55%);
+    font-size: 0.82rem;
+  }
+}
+
+.post-content {
+  line-height: 1.85;
+
+  h1, h2, h3, h4 {
+    font-family: 'VT323', 'Courier New', monospace;
+    color: $accent;
+    letter-spacing: 0.05em;
+  }
+
+  h2 { font-size: 1.8rem; border-bottom: 1px solid $border; padding-bottom: 0.3rem; }
+  h3 { font-size: 1.4rem; }
+
+  a {
+    color: $accent;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    &:hover { color: $highlight; }
+  }
+
+  p code {
+    background: $surface;
+    border: 1px solid $border;
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+    font-size: 0.88em;
+  }
+
+  pre {
+    background: $surface;
+    border: 1px solid $border;
+    border-left: 3px solid $blood;
+    padding: 1rem 1.2rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+
+    code { background: none; border: none; padding: 0; font-size: 0.88em; }
+  }
+
+  blockquote {
+    border-left: 3px solid $blood;
+    margin: 1.5rem 0;
+    padding: 0.5rem 1.2rem;
+    background: $surface;
+    color: darken($text, 15%);
+    font-style: italic;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid $border;
+    margin: 2rem 0;
+  }
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+
+.site-footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  border-top: 1px solid $border;
+  color: mix($text, $bg, 40%);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+}
