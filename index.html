@@ -19,6 +19,7 @@
       <a href="https:&#x2F;&#x2F;bricklaying.art/posts/">POSTS</a>
       <a href="https:&#x2F;&#x2F;bricklaying.art/about/">ABOUT</a>
       <a href="https:&#x2F;&#x2F;bricklaying.art/curated-content/">CC</a>
+      <a href="https:&#x2F;&#x2F;bricklaying.art/themes/">THEMES</a>
     </nav>
   </div>
   <div class="drip-bar">
@@ -69,6 +70,33 @@
   <source src="/audio/filename.mp3" type="audio/mpeg">
   -->
 </audio>
+
+<script>
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('.sc-cycle');
+    if (!el) return;
+    var words = JSON.parse(el.dataset.words);
+    var current = parseInt(el.dataset.index);
+    var next;
+    if (el.dataset.random === 'true') {
+      var windowSize = Math.floor(words.length / 2);
+      var history = el.dataset.history ? JSON.parse(el.dataset.history) : [current];
+      var excluded = history.slice(-windowSize);
+      var available = [];
+      for (var i = 0; i < words.length; i++) {
+        if (excluded.indexOf(i) === -1) available.push(i);
+      }
+      next = available[Math.floor(Math.random() * available.length)];
+      history.push(next);
+      if (history.length > windowSize) history = history.slice(-windowSize);
+      el.dataset.history = JSON.stringify(history);
+    } else {
+      next = (current + 1) % words.length;
+    }
+    el.dataset.index = next;
+    el.textContent = words[next];
+  });
+</script>
 
 <script>
   (function() {

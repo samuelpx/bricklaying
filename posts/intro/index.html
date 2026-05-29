@@ -19,6 +19,7 @@
       <a href="https:&#x2F;&#x2F;bricklaying.art/posts/">POSTS</a>
       <a href="https:&#x2F;&#x2F;bricklaying.art/about/">ABOUT</a>
       <a href="https:&#x2F;&#x2F;bricklaying.art/curated-content/">CC</a>
+      <a href="https:&#x2F;&#x2F;bricklaying.art/themes/">THEMES</a>
     </nav>
   </div>
   <div class="drip-bar">
@@ -45,7 +46,28 @@
     <div class="post-meta">2026-05-28</div>
   </header>
   <div class="post-content">
-    <p>First post. The blog is alive.</p>
+    <p>be sure to 
+  //<span class="sc-cycle" data-words='[&quot;breathe&quot;,&quot;wake up&quot;,&quot;stash&quot;,&quot;dredge&quot;,&quot;glow&quot;]' data-index="0" data-random="true">breathe</span>//
+
+</p>
+<p>for the longest time the laterality/internality/introspectivity of not writing, but rather maintaining internal pluralogs, was simply a matter of immediacy.
+I can think instantly, momentaneuosly. I cannot write so.
+but //writing// — no —  manifesting the pluralog — yes — is a cosmogenerative process in itself. it is not compelling, it is reassuring in the dangerous sense.</p>
+<p>the resulting artifacts are strange. they lack the slimy vaporeous essence of thinking and performing in thought: they’re //there//
+The distinctive exercise in writing here will be to try and see just      how</p>
+<div align="center">
+<p>cuttable</p>
+<p>twistable</p>
+<p>knottable</p>
+<p>cementable</p>
+<p>stretchable</p>
+<p>burnable</p>
+<p>scentable</p>
+<p>slideable</p>
+<p>(…)</p>
+</div>
+are the artifacts. just as menard's quixote, the mutability of sameness will be experimented on. What changes when the artifacts are revisited constantly?
+<p>How high can discarded thoughts pile? what rests in its shadow?</p>
 
   </div>
 </article>
@@ -63,6 +85,33 @@
   <source src="/audio/filename.mp3" type="audio/mpeg">
   -->
 </audio>
+
+<script>
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('.sc-cycle');
+    if (!el) return;
+    var words = JSON.parse(el.dataset.words);
+    var current = parseInt(el.dataset.index);
+    var next;
+    if (el.dataset.random === 'true') {
+      var windowSize = Math.floor(words.length / 2);
+      var history = el.dataset.history ? JSON.parse(el.dataset.history) : [current];
+      var excluded = history.slice(-windowSize);
+      var available = [];
+      for (var i = 0; i < words.length; i++) {
+        if (excluded.indexOf(i) === -1) available.push(i);
+      }
+      next = available[Math.floor(Math.random() * available.length)];
+      history.push(next);
+      if (history.length > windowSize) history = history.slice(-windowSize);
+      el.dataset.history = JSON.stringify(history);
+    } else {
+      next = (current + 1) % words.length;
+    }
+    el.dataset.index = next;
+    el.textContent = words[next];
+  });
+</script>
 
 <script>
   (function() {
