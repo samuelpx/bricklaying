@@ -1,0 +1,5 @@
+# Named word lists for the {{ cycle(key="name") }} shortcode.
+# Add a new list as a key under [lists].
+
+[lists]
+# example = ["word", "another", "one more"]

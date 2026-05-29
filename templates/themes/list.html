@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Themes &mdash; {{ config.title }}{% endblock title %}
+
+{% block content %}
+{% set data = load_data(path="data/themes.toml") %}
+<h1 class="section-title">THEMES</h1>
+<div class="collage-grid-a">
+  {% for term in terms %}
+    {% set theme_meta = data.themes | default(value=[]) | filter(attribute="slug", value=term.slug) | first %}
+    <div class="collage-item{% if theme_meta.span %} span-2{% endif %}">
+      <a href="{{ term.permalink }}">{{ term.name }}</a>
+      {% if theme_meta.note %}<p>{{ theme_meta.note }}</p>{% endif %}
+      {% if not theme_meta %}<p class="theme-missing">[ not in themes.toml ]</p>{% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% endblock content %}

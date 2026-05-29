@@ -6,6 +6,11 @@ generate_feeds = true
 feed_filenames = ["atom.xml"]
 build_search_index = false
 
+taxonomies = [
+  {name = "themes", feed = false}
+]
+
 [markdown]
 highlight_code = true
 highlight_theme = "base16-ocean-dark"
+smart_punctuation = true

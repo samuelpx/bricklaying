@@ -1,0 +1,27 @@
+# Per-theme metadata and extra collage items.
+# slug must match the Zola-slugified taxonomy term (e.g. "Memory" -> "memory").
+# items follow the same types as curated.toml: link, quote, image, text.
+
+# [[themes]]
+# slug = "example"
+# name = "Example"
+# span = true
+# note = "Optional short text shown on the themes index card."
+#
+# [[themes.items]]
+# type = "quote"
+# text = "..."
+# credit = "..."
+#
+# [[themes.items]]
+# type = "link"
+# title = "..."
+# url = "https://..."
+# note = "..."
+
+[[themes]]
+
+slug = "surface"
+name = "surface"
+span = false
+note = "can we break, can we bend"
