@@ -46,7 +46,9 @@ slideable
 </div>
 the artifacts are. just as menard's quixote, the mutability of sameness will be prodded. What changes when the artifacts are revisited constantly?
 
+
 are ruins still organic and alive even if they're not perceived as such?
+
 
 How high can discarded thoughts pile? what rests in its shadow?
 
