@@ -62,6 +62,11 @@
 
 <footer class="site-footer">
   &copy; 2026 &mdash; bricklaying &mdash; powered by the sempiternal health of experience and zola
+  <div class="palette-switcher">
+    <button class="pal-btn" data-pal="default" title="default"></button>
+    <button class="pal-btn" data-pal="g" title="noir plum ash"></button>
+    <button class="pal-btn" data-pal="h" title="cursed emerald ink"></button>
+  </div>
 </footer>
 
 
@@ -72,6 +77,29 @@
 </audio>
 
 <script>
+  (function() {
+    var saved = localStorage.getItem('palette') || 'default';
+    if (saved !== 'default') document.documentElement.setAttribute('data-palette', saved);
+    document.querySelectorAll('.pal-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.pal === saved);
+    });
+  })();
+</script>
+
+<script>
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.pal-btn');
+    if (btn) {
+      var pal = btn.dataset.pal;
+      if (pal === 'default') document.documentElement.removeAttribute('data-palette');
+      else document.documentElement.setAttribute('data-palette', pal);
+      localStorage.setItem('palette', pal);
+      document.querySelectorAll('.pal-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.pal === pal);
+      });
+    }
+  });
+
   document.addEventListener('click', function(e) {
     var el = e.target.closest('.sc-cycle');
     if (!el) return;
