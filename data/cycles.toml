@@ -7,4 +7,6 @@ about-edited = ["shifted", "morphing", "metastasizing",
                 "pulsating", "pumping", "hiding", "escaping",
                 "szurfing", "snoozing", "sticking",]
 
-intro-there = ["there", "here", "anywhere", "everywhere", "nowhere", "inside", "within", "dripping", "somewhere"]
+intro-there = ["there", "here", "anywhere", "everywhere",
+                "nowhere", "inside", "within", "dripping",
+                "somewhere"]
