@@ -6,6 +6,93 @@ $accent:    #cc0000;
 $highlight: #ff2200;
 $border:    #3d0000;
 
+// ── Default palette (CSS custom properties) ───────────────────────────────────
+// SASS computes all values at build time; alternate palettes override them at runtime.
+
+:root {
+  --bg:              #{$bg};
+  --surface:         #{$surface};
+  --text:            #{$text};
+  --blood:           #{$blood};
+  --accent:          #{$accent};
+  --highlight:       #{$highlight};
+  --border:          #{$border};
+  --highlight-light: #{lighten($highlight, 10%)};
+  --blood-dark:      #{darken($blood, 8%)};
+  --text-dark-10:    #{darken($text, 10%)};
+  --text-dark-15:    #{darken($text, 15%)};
+  --mix-text-40:     #{mix($text, $bg, 40%)};
+  --mix-text-50:     #{mix($text, $bg, 50%)};
+  --mix-text-55:     #{mix($text, $bg, 55%)};
+  --mix-text-60:     #{mix($text, $bg, 60%)};
+  --mix-text-65:     #{mix($text, $bg, 65%)};
+  --mix-text-70:     #{mix($text, $bg, 70%)};
+  --mix-accent-45:   #{mix($accent, $bg, 45%)};
+  --mix-accent-70:   #{mix($accent, $bg, 70%)};
+  --glow-near:       rgba(204, 0, 0, 0.7);
+  --glow-far:        rgba(139, 0, 0, 0.4);
+  --glow-accent:     rgba(204, 0, 0, 0.5);
+  --glow-blood:      rgba(204, 0, 0, 0.5);
+}
+
+// ── Palette G: Noir Plum Ash ──────────────────────────────────────────────────
+
+[data-palette="g"] {
+  --bg:              #0b0a0d;
+  --surface:         #221824;
+  --text:            #f0e8f2;
+  --blood:           #4a2a4f;
+  --accent:          #c4a0d0;
+  --highlight:       #dbbce6;
+  --border:          #322038;
+  --highlight-light: #e8d0f0;
+  --blood-dark:      #341d38;
+  --text-dark-10:    #d8ceda;
+  --text-dark-15:    #c4b8c8;
+  --mix-text-40:     #676369;
+  --mix-text-50:     #7e7980;
+  --mix-text-55:     #89848b;
+  --mix-text-60:     #948f96;
+  --mix-text-65:     #a09aa2;
+  --mix-text-70:     #aba5ad;
+  --mix-accent-45:   #5e4e65;
+  --mix-accent-70:   #8d7396;
+  --glow-near:       rgba(170, 136, 180, 0.6);
+  --glow-far:        rgba(74, 42, 79, 0.4);
+  --glow-accent:     rgba(170, 136, 180, 0.5);
+  --glow-blood:      rgba(170, 136, 180, 0.5);
+}
+
+// ── Palette H: Cursed Emerald Ink ─────────────────────────────────────────────
+
+[data-palette="h"] {
+  --bg:              #060907;
+  --surface:         #0e1f17;
+  --text:            #d5efe6;
+  --blood:           #124136;
+  --accent:          #3acc99;
+  --highlight:       #58e0b0;
+  --border:          #0e2820;
+  --highlight-light: #74ecc0;
+  --blood-dark:      #082418;
+  --text-dark-10:    #a8d4bf;
+  --text-dark-15:    #95c8b0;
+  --mix-text-40:     #596560;
+  --mix-text-50:     #6e7c77;
+  --mix-text-55:     #788882;
+  --mix-text-60:     #82938d;
+  --mix-text-65:     #8d9f98;
+  --mix-text-70:     #97aaa3;
+  --mix-accent-45:   #1d6149;
+  --mix-accent-70:   #2a926d;
+  --glow-near:       rgba(42, 170, 136, 0.6);
+  --glow-far:        rgba(18, 65, 54, 0.4);
+  --glow-accent:     rgba(42, 170, 136, 0.5);
+  --glow-blood:      rgba(42, 170, 136, 0.5);
+}
+
+// ── Base ──────────────────────────────────────────────────────────────────────
+
 *, *::before, *::after {
   cursor: url('/cursors/hand.png') 8 0, pointer;
   box-sizing: border-box;
@@ -14,8 +101,8 @@ $border:    #3d0000;
 html, body {
   margin: 0;
   padding: 0;
-  background: $bg;
-  color: $text;
+  background: var(--bg);
+  color: var(--text);
   font-family: 'Courier New', 'Lucida Console', monospace;
   font-size: 16px;
   line-height: 1.6;
@@ -25,8 +112,8 @@ html, body {
 // ── Header ────────────────────────────────────────────────────────────────────
 
 .site-header {
-  background: $surface;
-  border-bottom: 3px solid $blood;
+  background: var(--surface);
+  border-bottom: 3px solid var(--blood);
   position: relative;
   overflow: visible;
   z-index: 10;
@@ -44,13 +131,13 @@ html, body {
 .site-title {
   font-family: 'VT323', 'Courier New', monospace;
   font-size: 2.8rem;
-  color: $highlight;
+  color: var(--highlight);
   text-decoration: none;
   letter-spacing: 0.12em;
-  text-shadow: 0 0 12px rgba(204, 0, 0, 0.7), 0 0 30px rgba(139, 0, 0, 0.4);
+  text-shadow: 0 0 12px var(--glow-near), 0 0 30px var(--glow-far);
 
   &:hover {
-    color: lighten($highlight, 10%);
+    color: var(--highlight-light);
   }
 }
 
@@ -61,16 +148,16 @@ html, body {
   a {
     font-family: 'VT323', 'Courier New', monospace;
     font-size: 1.4rem;
-    color: $text;
+    color: var(--text);
     text-decoration: none;
     padding: 0.2rem 0.9rem;
-    border: 1px solid $border;
+    border: 1px solid var(--border);
     margin-left: 0.5rem;
     transition: color 0.15s, border-color 0.15s;
 
     &:hover {
-      color: $highlight;
-      border-color: $blood;
+      color: var(--highlight);
+      border-color: var(--blood);
     }
   }
 }
@@ -90,7 +177,7 @@ html, body {
 .drip {
   position: absolute;
   top: 0;
-  background: linear-gradient($accent, darken($blood, 8%));
+  background: linear-gradient(var(--accent), var(--blood-dark));
   border-radius: 0 0 60% 60%;
   animation: drip ease-in infinite;
   opacity: 0;
@@ -103,7 +190,7 @@ html, body {
     transform: translateX(-50%) scale(0);
     width: 9px;
     height: 9px;
-    background: $blood;
+    background: var(--blood);
     border-radius: 50%;
     animation: drip-drop ease-in infinite;
     animation-duration: inherit;
@@ -139,23 +226,23 @@ html, body {
 .section-title {
   font-family: 'VT323', 'Courier New', monospace;
   font-size: 1.8rem;
-  color: $highlight;
+  color: var(--highlight);
   margin: 0 0 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid $border;
+  border-bottom: 1px solid var(--border);
   letter-spacing: 0.08em;
 }
 
 // ── Home intro blurb ─────────────────────────────────────────────────────────
 
 .home-intro {
-  border: 1px solid $border;
-  border-left: 3px solid $blood;
-  background: $surface;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blood);
+  background: var(--surface);
   padding: 1rem 1.5rem;
   margin-bottom: 2rem;
   font-size: 0.95rem;
-  color: darken($text, 10%);
+  color: var(--text-dark-10);
 }
 
 // ── Post list ─────────────────────────────────────────────────────────────────
@@ -167,29 +254,29 @@ html, body {
 }
 
 .post-item {
-  border: 1px solid $border;
-  border-left: 3px solid $blood;
-  background: $surface;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blood);
+  background: var(--surface);
   padding: 0.9rem 1.4rem;
   margin-bottom: 0.7rem;
   transition: border-left-color 0.15s;
 
   &:hover {
-    border-left-color: $highlight;
+    border-left-color: var(--highlight);
   }
 
   a {
     font-family: 'VT323', 'Courier New', monospace;
     font-size: 1.5rem;
-    color: $accent;
+    color: var(--accent);
     text-decoration: none;
     letter-spacing: 0.04em;
 
-    &:hover { color: $highlight; }
+    &:hover { color: var(--highlight); }
   }
 
   .post-date {
-    color: mix($text, $bg, 55%);
+    color: var(--mix-text-55);
     font-size: 0.82rem;
     margin-top: 0.25rem;
     font-family: 'Courier New', monospace;
@@ -198,7 +285,7 @@ html, body {
   .post-summary {
     margin: 0.4rem 0 0;
     font-size: 0.9rem;
-    color: darken($text, 15%);
+    color: var(--text-dark-15);
   }
 }
 
@@ -206,13 +293,13 @@ html, body {
   display: inline-block;
   font-family: 'VT323', monospace;
   font-size: 1.2rem;
-  color: $text;
+  color: var(--text);
   text-decoration: none;
   margin-top: 0.5rem;
   letter-spacing: 0.05em;
 
-  &:hover { color: $accent; }
-  &::before { content: '>> '; color: $blood; }
+  &:hover { color: var(--accent); }
+  &::before { content: '>> '; color: var(--blood); }
 }
 
 // ── Single post ───────────────────────────────────────────────────────────────
@@ -220,31 +307,31 @@ html, body {
 .back-link {
   display: inline-block;
   font-size: 0.88rem;
-  color: mix($text, $bg, 65%);
+  color: var(--mix-text-65);
   text-decoration: none;
   margin-bottom: 1.5rem;
 
-  &::before { content: '< '; color: $blood; }
-  &:hover { color: $text; }
+  &::before { content: '< '; color: var(--blood); }
+  &:hover { color: var(--text); }
 }
 
 .post-header {
-  border-bottom: 1px solid $border;
+  border-bottom: 1px solid var(--border);
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 
   h1 {
     font-family: 'VT323', 'Courier New', monospace;
     font-size: 2.4rem;
-    color: $highlight;
+    color: var(--highlight);
     margin: 0 0 0.4rem;
     line-height: 1.1;
     letter-spacing: 0.06em;
-    text-shadow: 0 0 8px rgba(204, 0, 0, 0.5);
+    text-shadow: 0 0 8px var(--glow-accent);
   }
 
   .post-meta {
-    color: mix($text, $bg, 55%);
+    color: var(--mix-text-55);
     font-size: 0.82rem;
   }
 }
@@ -254,32 +341,32 @@ html, body {
 
   h1, h2, h3, h4 {
     font-family: 'VT323', 'Courier New', monospace;
-    color: $accent;
+    color: var(--accent);
     letter-spacing: 0.05em;
   }
 
-  h2 { font-size: 1.8rem; border-bottom: 1px solid $border; padding-bottom: 0.3rem; }
+  h2 { font-size: 1.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
   h3 { font-size: 1.4rem; }
 
   a {
-    color: $accent;
+    color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 3px;
-    &:hover { color: $highlight; }
+    &:hover { color: var(--highlight); }
   }
 
   p code {
-    background: $surface;
-    border: 1px solid $border;
+    background: var(--surface);
+    border: 1px solid var(--border);
     padding: 0.1em 0.35em;
     border-radius: 2px;
     font-size: 0.88em;
   }
 
   pre {
-    background: $surface;
-    border: 1px solid $border;
-    border-left: 3px solid $blood;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blood);
     padding: 1rem 1.2rem;
     overflow-x: auto;
     margin: 1.5rem 0;
@@ -288,17 +375,17 @@ html, body {
   }
 
   blockquote {
-    border-left: 3px solid $blood;
+    border-left: 3px solid var(--blood);
     margin: 1.5rem 0;
     padding: 0.5rem 1.2rem;
-    background: $surface;
-    color: darken($text, 15%);
+    background: var(--surface);
+    color: var(--text-dark-15);
     font-style: italic;
   }
 
   hr {
     border: none;
-    border-top: 1px solid $border;
+    border-top: 1px solid var(--border);
     margin: 2rem 0;
   }
 }
@@ -313,7 +400,7 @@ html, body {
 
 .collage-intro {
   text-align: center;
-  color: mix($text, $bg, 60%);
+  color: var(--mix-text-60);
   font-style: italic;
   margin-bottom: 2rem;
 }
@@ -331,18 +418,18 @@ html, body {
     a {
       font-family: 'VT323', monospace;
       font-size: 1.4rem;
-      color: $accent;
+      color: var(--accent);
       text-decoration: none;
       letter-spacing: 0.04em;
       display: block;
       margin-bottom: 0.3rem;
-      &:hover { color: $highlight; }
+      &:hover { color: var(--highlight); }
     }
 
     p {
       margin: 0.4rem 0 0;
       font-size: 0.88rem;
-      color: darken($text, 15%);
+      color: var(--text-dark-15);
       line-height: 1.5;
     }
   }
@@ -356,9 +443,9 @@ html, body {
   margin-top: 1rem;
 
   .collage-item {
-    background: $surface;
-    border: 1px solid $border;
-    border-top: 3px solid $blood;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--blood);
     padding: 1rem 1.2rem;
 
     &.span-2 { grid-column: span 2; }
@@ -367,22 +454,22 @@ html, body {
 
 .collage-quote {
   font-style: italic;
-  color: mix($text, $bg, 70%);
-  border-left: 2px solid $blood;
+  color: var(--mix-text-70);
+  border-left: 2px solid var(--blood);
   padding-left: 0.6rem;
   margin: 0 0 0.3rem;
 }
 
 .collage-credit {
   font-size: 0.8rem;
-  color: mix($text, $bg, 50%);
+  color: var(--mix-text-50);
   margin: 0;
   padding-left: 0.6rem;
 
   a {
-    color: mix($accent, $bg, 70%);
+    color: var(--mix-accent-70);
     text-decoration: none;
-    &:hover { color: $accent; }
+    &:hover { color: var(--accent); }
   }
 }
 
@@ -391,8 +478,8 @@ html, body {
 .sc-big {
   font-family: 'VT323', monospace;
   font-size: 5rem;
-  color: $highlight;
-  text-shadow: 0 0 20px rgba(204, 0, 0, 0.7), 0 0 50px rgba(139, 0, 0, 0.3);
+  color: var(--highlight);
+  text-shadow: 0 0 20px var(--glow-near), 0 0 50px var(--glow-far);
   line-height: 1;
   display: block;
   letter-spacing: 0.08em;
@@ -400,13 +487,13 @@ html, body {
 }
 
 .sc-accent {
-  color: $accent;
+  color: var(--accent);
 }
 
 .sc-outline {
   font-family: 'VT323', monospace;
   font-size: 3rem;
-  -webkit-text-stroke: 1px $accent;
+  -webkit-text-stroke: 1px var(--accent);
   color: transparent;
   display: inline-block;
   letter-spacing: 0.06em;
@@ -414,14 +501,14 @@ html, body {
 }
 
 .sc-flicker {
-  color: $highlight;
+  color: var(--highlight);
   animation: sc-flicker 4s infinite;
 }
 
 @keyframes sc-flicker {
   0%, 18%, 22%, 25%, 53%, 57%, 100% {
     opacity: 1;
-    text-shadow: 0 0 6px $accent, 0 0 18px rgba(204, 0, 0, 0.5);
+    text-shadow: 0 0 6px var(--accent), 0 0 18px var(--glow-blood);
   }
   20%, 24%, 55% {
     opacity: 0.3;
@@ -483,7 +570,7 @@ html, body {
 
 .sc-cycle {
   transition: color 0.15s;
-  &:hover { color: $accent; }
+  &:hover { color: var(--accent); }
 }
 
 .sc-bleed {
@@ -492,9 +579,9 @@ html, body {
   left: 50%;
   margin-left: -50vw;
   padding: 1.5rem 3rem;
-  background: $surface;
-  border-top: 1px solid $border;
-  border-bottom: 1px solid $border;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   box-sizing: border-box;
 }
 
@@ -504,9 +591,9 @@ html, body {
   position: relative;
   left: 50%;
   margin-left: -50vw;
-  background: $surface;
-  border-top: 1px solid $border;
-  border-bottom: 1px solid $border;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   padding: 0.8rem 0;
   box-sizing: border-box;
 }
@@ -534,16 +621,42 @@ html, body {
 .theme-count {
   margin: 0.3rem 0 0;
   font-size: 0.78rem;
-  color: mix($text, $bg, 40%);
+  color: var(--mix-text-40);
   letter-spacing: 0.04em;
 }
 
 .theme-missing {
   margin: 0.3rem 0 0;
   font-size: 0.78rem;
-  color: mix($accent, $bg, 45%);
+  color: var(--mix-accent-45);
   font-style: italic;
 }
+
+// ── Palette switcher ──────────────────────────────────────────────────────────
+
+.palette-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.pal-btn {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  padding: 0;
+  opacity: 0.7;
+  transition: opacity 0.2s, transform 0.2s;
+
+  &:hover { opacity: 1; transform: scale(1.3); }
+  &.active { opacity: 1; transform: scale(1.3); }
+}
+
+.pal-btn[data-pal="default"] { background: #cc0000; }
+.pal-btn[data-pal="g"]       { background: #8a6c92; }
+.pal-btn[data-pal="h"]       { background: #1f7a63; }
 
 // ── Footer ────────────────────────────────────────────────────────────────────
 
@@ -551,8 +664,8 @@ html, body {
   text-align: center;
   padding: 1.5rem;
   margin-top: 3rem;
-  border-top: 1px solid $border;
-  color: mix($text, $bg, 40%);
+  border-top: 1px solid var(--border);
+  color: var(--mix-text-65);
   font-size: 0.78rem;
   letter-spacing: 0.05em;
 }
