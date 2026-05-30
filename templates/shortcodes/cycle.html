@@ -1,7 +1,7 @@
-{% if key is defined %}
-  {% set data = load_data(path="data/cycles.toml") %}
-  {% set words = data.lists[key] %}
-  //<span class="sc-cycle" data-words='{{ words | json_encode }}' data-index="0" {% if random is defined and random %}data-random="true"{% endif %}>{{ words | first }}</span>//
-{% else %}
-  //<span class="sc-cycle" data-words='{{ words | json_encode }}' data-index="0" {% if random is defined and random %}data-random="true"{% endif %}>{{ words | first }}</span>//
-{% endif %}
+{%- if key is defined -%}
+  {%- set data = load_data(path="data/cycles.toml") -%}
+  {%- set words = data.lists[key] -%}
+//<span class="sc-cycle" data-words='{{ words | json_encode }}' data-index="0" {% if random is defined and random %}data-random="true"{% endif %}>{{ words | first }}</span>//
+{%- else -%}
+//<span class="sc-cycle" data-words='{{ words | json_encode }}' data-index="0" {% if random is defined and random %}data-random="true"{% endif %}>{{ words | first }}</span>//
+{%- endif -%}
