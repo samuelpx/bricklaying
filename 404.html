@@ -1,3 +1,134 @@
-<!doctype html>
-<title>404 Not Found</title>
-<h1>404 Not Found</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — bricklaying</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://bricklaying.art/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+    <a href="https:&#x2F;&#x2F;bricklaying.art/" class="site-title">bricklaying</a>
+    <nav class="site-nav">
+      <a href="https:&#x2F;&#x2F;bricklaying.art/">HOME</a>
+      <a href="https:&#x2F;&#x2F;bricklaying.art/posts/">POSTS</a>
+      <a href="https:&#x2F;&#x2F;bricklaying.art/about/">ABOUT</a>
+      <a href="https:&#x2F;&#x2F;bricklaying.art/curated-content/">CC</a>
+      <a href="https:&#x2F;&#x2F;bricklaying.art/themes/">THEMES</a>
+    </nav>
+  </div>
+  <div class="drip-bar">
+    <span class="drip" style="left:6%;  width:4px; animation-duration:2.3s; animation-delay:0.0s;"></span>
+    <span class="drip" style="left:14%; width:6px; animation-duration:2.8s; animation-delay:1.1s;"></span>
+    <span class="drip" style="left:25%; width:4px; animation-duration:2.0s; animation-delay:0.5s;"></span>
+    <span class="drip" style="left:38%; width:5px; animation-duration:2.6s; animation-delay:1.7s;"></span>
+    <span class="drip" style="left:51%; width:3px; animation-duration:1.9s; animation-delay:0.3s;"></span>
+    <span class="drip" style="left:63%; width:5px; animation-duration:2.4s; animation-delay:1.3s;"></span>
+    <span class="drip" style="left:74%; width:4px; animation-duration:2.1s; animation-delay:0.8s;"></span>
+    <span class="drip" style="left:85%; width:6px; animation-duration:2.7s; animation-delay:2.0s;"></span>
+    <span class="drip" style="left:93%; width:4px; animation-duration:2.2s; animation-delay:0.6s;"></span>
+  </div>
+</header>
+
+<main class="main-content">
+  
+<div class="error-404">
+  <div class="error-code">404</div>
+  <p class="error-msg">what is not found may not yet be</p>
+  <p class="error-sub">revise/resist/correct/converge</p>
+  <a href="https:&#x2F;&#x2F;bricklaying.art/" class="back-link" style="margin-top: 2rem; display: inline-block;">collect yourself</a>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  &copy; 2026 &mdash; bricklaying &mdash; powered by the sempiternal health of experience and zola
+  <div class="palette-switcher">
+    <button class="pal-btn" data-pal="default" title="default"></button>
+    <button class="pal-btn" data-pal="g" title="noir plum ash"></button>
+    <button class="pal-btn" data-pal="h" title="cursed emerald ink"></button>
+    <button class="pal-btn" data-pal="i" title="cold iron blue"></button>
+  </div>
+</footer>
+
+
+<audio id="bg-audio" loop preload="auto">
+  <!-- Add tracks here when ready, e.g:
+  <source src="/audio/filename.mp3" type="audio/mpeg">
+  -->
+</audio>
+
+<script>
+  (function() {
+    var saved = localStorage.getItem('palette') || 'default';
+    if (saved !== 'default') document.documentElement.setAttribute('data-palette', saved);
+    document.querySelectorAll('.pal-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.pal === saved);
+    });
+  })();
+</script>
+
+<script>
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.pal-btn');
+    if (btn) {
+      var pal = btn.dataset.pal;
+      if (pal === 'default') document.documentElement.removeAttribute('data-palette');
+      else document.documentElement.setAttribute('data-palette', pal);
+      localStorage.setItem('palette', pal);
+      document.querySelectorAll('.pal-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.pal === pal);
+      });
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('.sc-cycle');
+    if (!el) return;
+    var words = JSON.parse(el.dataset.words);
+    var current = parseInt(el.dataset.index);
+    var next;
+    if (el.dataset.random === 'true') {
+      var windowSize = Math.floor(words.length / 2);
+      var history = el.dataset.history ? JSON.parse(el.dataset.history) : [current];
+      var excluded = history.slice(-windowSize);
+      var available = [];
+      for (var i = 0; i < words.length; i++) {
+        if (excluded.indexOf(i) === -1) available.push(i);
+      }
+      next = available[Math.floor(Math.random() * available.length)];
+      history.push(next);
+      if (history.length > windowSize) history = history.slice(-windowSize);
+      el.dataset.history = JSON.stringify(history);
+    } else {
+      next = (current + 1) % words.length;
+    }
+    el.dataset.index = next;
+    el.textContent = words[next];
+  });
+</script>
+
+<script>
+  (function() {
+    var audio = document.getElementById('bg-audio');
+    if (!audio.querySelector('source')) return;
+
+    audio.play().catch(function() {
+      function tryPlay() {
+        audio.play().catch(function() {});
+        document.removeEventListener('click', tryPlay);
+        document.removeEventListener('keydown', tryPlay);
+      }
+      document.addEventListener('click', tryPlay);
+      document.addEventListener('keydown', tryPlay);
+    });
+  })();
+</script>
+
+</body>
+</html>
