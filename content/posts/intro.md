@@ -13,7 +13,7 @@ I can think instantly, momentaneuosly. I cannot write so.
 however, //writing// --- no ---  manifesting the pluralog --- yes --- is a cosmogenerative process in itself. it is not compelling; it is reassuring in the dangerous sense.
 
 
-the resulting artifacts are strange. they lack the slimy vaporeous essence of thinking and performing in thought through the mind: they're {{ cycle(key="intro-there",random=true) }} 
+the resulting artifacts are strange. they lack the slimy vaporeous essence of thinking and performing in thought through the mind: they're {{ cycle(key="intro-there",random=true) }}. 
 this distinctive exercise in writing will try and experiment with      how
 <div align="center">
 

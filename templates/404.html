@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}404 — {{ config.title }}{% endblock title %}
+
+{% block content %}
+<div class="error-404">
+  <div class="error-code">404</div>
+  <p class="error-msg">what is not found may not yet be</p>
+  <p class="error-sub">revise/resist/correct/converge</p>
+  <a href="{{ config.base_url }}/" class="back-link" style="margin-top: 2rem; display: inline-block;">collect yourself</a>
+</div>
+{% endblock content %}

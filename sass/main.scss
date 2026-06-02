@@ -1,5 +1,5 @@
-$bg:        #0d0000;
-$surface:   #1a0000;
+$bg:        #1a0000;
+$surface:   #2a0000;
 $text:      #c8c8c8;
 $blood:     #8b0000;
 $accent:    #cc0000;
@@ -38,25 +38,25 @@ $border:    #3d0000;
 // ── Palette G: Noir Plum Ash ──────────────────────────────────────────────────
 
 [data-palette="g"] {
-  --bg:              #0b0a0d;
-  --surface:         #221824;
+  --bg:              #18141c;
+  --surface:         #2e2236;
   --text:            #f0e8f2;
   --blood:           #4a2a4f;
   --accent:          #c4a0d0;
   --highlight:       #dbbce6;
-  --border:          #322038;
+  --border:          #3e2c4a;
   --highlight-light: #e8d0f0;
   --blood-dark:      #341d38;
   --text-dark-10:    #d8ceda;
   --text-dark-15:    #c4b8c8;
-  --mix-text-40:     #676369;
-  --mix-text-50:     #7e7980;
-  --mix-text-55:     #89848b;
-  --mix-text-60:     #948f96;
-  --mix-text-65:     #a09aa2;
-  --mix-text-70:     #aba5ad;
-  --mix-accent-45:   #5e4e65;
-  --mix-accent-70:   #8d7396;
+  --mix-text-40:     #736f76;
+  --mix-text-50:     #897f8c;
+  --mix-text-55:     #948f96;
+  --mix-text-60:     #9f9aa1;
+  --mix-text-65:     #aaa5ac;
+  --mix-text-70:     #b5afb7;
+  --mix-accent-45:   #6a5872;
+  --mix-accent-70:   #9880a2;
   --glow-near:       rgba(170, 136, 180, 0.6);
   --glow-far:        rgba(74, 42, 79, 0.4);
   --glow-accent:     rgba(170, 136, 180, 0.5);
@@ -66,29 +66,57 @@ $border:    #3d0000;
 // ── Palette H: Cursed Emerald Ink ─────────────────────────────────────────────
 
 [data-palette="h"] {
-  --bg:              #060907;
-  --surface:         #0e1f17;
+  --bg:              #0d1a10;
+  --surface:         #172e20;
   --text:            #d5efe6;
   --blood:           #124136;
   --accent:          #3acc99;
   --highlight:       #58e0b0;
-  --border:          #0e2820;
+  --border:          #1a3828;
   --highlight-light: #74ecc0;
   --blood-dark:      #082418;
   --text-dark-10:    #a8d4bf;
   --text-dark-15:    #95c8b0;
-  --mix-text-40:     #596560;
-  --mix-text-50:     #6e7c77;
-  --mix-text-55:     #788882;
-  --mix-text-60:     #82938d;
-  --mix-text-65:     #8d9f98;
-  --mix-text-70:     #97aaa3;
-  --mix-accent-45:   #1d6149;
-  --mix-accent-70:   #2a926d;
+  --mix-text-40:     #637069;
+  --mix-text-50:     #788780;
+  --mix-text-55:     #82928b;
+  --mix-text-60:     #8c9e96;
+  --mix-text-65:     #96a9a1;
+  --mix-text-70:     #a0b4ac;
+  --mix-accent-45:   #256b52;
+  --mix-accent-70:   #31997a;
   --glow-near:       rgba(42, 170, 136, 0.6);
   --glow-far:        rgba(18, 65, 54, 0.4);
   --glow-accent:     rgba(42, 170, 136, 0.5);
   --glow-blood:      rgba(42, 170, 136, 0.5);
+}
+
+// ── Palette I: Cold Iron Blue ─────────────────────────────────────────────────
+
+[data-palette="i"] {
+  --bg:              #0d1220;
+  --surface:         #182035;
+  --text:            #c8d8f0;
+  --blood:           #1a2a5e;
+  --accent:          #4a7fd4;
+  --highlight:       #7aaaf0;
+  --border:          #243058;
+  --highlight-light: #9ec0f8;
+  --blood-dark:      #0e1a3d;
+  --text-dark-10:    #afc3e0;
+  --text-dark-15:    #9db4d4;
+  --mix-text-40:     #616c7e;
+  --mix-text-50:     #75808f;
+  --mix-text-55:     #7f8b9a;
+  --mix-text-60:     #8996a4;
+  --mix-text-65:     #93a0ae;
+  --mix-text-70:     #9dabb8;
+  --mix-accent-45:   #2b3e6e;
+  --mix-accent-70:   #3a5a9e;
+  --glow-near:       rgba(74, 127, 212, 0.65);
+  --glow-far:        rgba(26, 42, 94, 0.4);
+  --glow-accent:     rgba(74, 127, 212, 0.5);
+  --glow-blood:      rgba(74, 127, 212, 0.5);
 }
 
 // ── Base ──────────────────────────────────────────────────────────────────────
@@ -657,6 +685,38 @@ html, body {
 .pal-btn[data-pal="default"] { background: #cc0000; }
 .pal-btn[data-pal="g"]       { background: #8a6c92; }
 .pal-btn[data-pal="h"]       { background: #1f7a63; }
+.pal-btn[data-pal="i"]       { background: #4a7fd4; }
+
+// ── 404 ───────────────────────────────────────────────────────────────────────
+
+.error-404 {
+  text-align: center;
+  padding: 4rem 2rem;
+
+  .error-code {
+    font-family: 'VT323', monospace;
+    font-size: 10rem;
+    line-height: 1;
+    color: var(--highlight);
+    text-shadow: 0 0 30px var(--glow-near), 0 0 80px var(--glow-far);
+    letter-spacing: 0.1em;
+    animation: sc-flicker 6s infinite;
+  }
+
+  .error-msg {
+    font-family: 'VT323', monospace;
+    font-size: 1.6rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    margin: 1rem 0 0.5rem;
+  }
+
+  .error-sub {
+    color: var(--mix-text-55);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
 
 // ── Footer ────────────────────────────────────────────────────────────────────
 

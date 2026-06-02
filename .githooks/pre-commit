@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Replace `date = TODAY` in staged post files with today's actual date.
+
+TODAY=$(date +%Y-%m-%d)
+CHANGED=0
+
+while IFS= read -r file; do
+    if [[ "$file" == content/posts/*.md ]] && grep -q '^date = TODAY$' "$file"; then
+        sed -i "s/^date = TODAY$/date = $TODAY/" "$file"
+        git add "$file"
+        CHANGED=1
+    fi
+done < <(git diff --cached --name-only)
+
+if [[ $CHANGED -eq 1 ]]; then
+    echo "pre-commit: filled in today's date ($TODAY) in post frontmatter"
+fi
