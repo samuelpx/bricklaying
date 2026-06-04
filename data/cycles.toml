@@ -3,10 +3,10 @@
 
 [lists]
 # example = ["word", "another", "one more"]
-about-edited = ["shifted", "morphing", "metastasizing",
+about-edited = ["shifting", "morphing", "metastasizing",
                 "pulsating", "pumping", "hiding", "escaping",
                 "szurfing", "snoozing", "sticking",]
 
 intro-there = ["there", "here", "anywhere", "everywhere",
                 "nowhere", "inside", "within", "dripping",
-                "somewhere"]
+                "drooping",  "somewhere"]
