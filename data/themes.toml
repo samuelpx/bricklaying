@@ -29,19 +29,21 @@ note = "can we break, can we bend"
 [[themes]]
 
 slug = "art"
-name = "Art"
+name = "art"
 span = false
 note = "what is poured into the soul"
+
 [[themes]]
 
 slug = "speed"
-name = "Speed"
+name = "speed"
 span = false
 note = "cannery, bribery"
+
 [[themes]]
 
 slug = "initiative"
 name = "Initiative"
-span = True
+span = true
 note = "RIDE RIDE RIDE RIDE RIDE RIDE"
 
