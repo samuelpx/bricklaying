@@ -35,7 +35,7 @@ $border:    #3d0000;
   --glow-blood:      rgba(204, 0, 0, 0.5);
 }
 
-// ── Palette G: Noir Plum Ash ──────────────────────────────────────────────────
+// ── Palette G: Noir Plum Ash (I mean. yeah I just googled the pallete)
 
 [data-palette="g"] {
   --bg:              #18141c;
@@ -63,7 +63,7 @@ $border:    #3d0000;
   --glow-blood:      rgba(170, 136, 180, 0.5);
 }
 
-// ── Palette H: Cursed Emerald Ink ─────────────────────────────────────────────
+// ── Palette H: fucked up that H is green. but so is life
 
 [data-palette="h"] {
   --bg:              #0d1a10;
@@ -91,7 +91,7 @@ $border:    #3d0000;
   --glow-blood:      rgba(42, 170, 136, 0.5);
 }
 
-// ── Palette I: Cold Iron Blue ─────────────────────────────────────────────────
+// ── Palette I: sotn-ish cave blue
 
 [data-palette="i"] {
   --bg:              #0d1220;
@@ -418,7 +418,7 @@ html, body {
   }
 }
 
-// ── Utilities ─────────────────────────────────────────────────────────────────
+// ── Utilities ─────────────────WIP -───────────────────────────────────────────
 
 .justified {
   text-align: justify;
@@ -728,4 +728,3 @@ html, body {
   color: var(--mix-text-65);
   font-size: 0.78rem;
   letter-spacing: 0.05em;
-}
