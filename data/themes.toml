@@ -25,3 +25,23 @@ slug = "surface"
 name = "surface"
 span = false
 note = "can we break, can we bend"
+
+[[themes]]
+
+slug = "art"
+name = "Art"
+span = false
+note = "what is poured into the soul"
+[[themes]]
+
+slug = "speed"
+name = "Speed"
+span = false
+note = "cannery, bribery"
+[[themes]]
+
+slug = "initiative"
+name = "Initiative"
+span = True
+note = "RIDE RIDE RIDE RIDE RIDE RIDE"
+
