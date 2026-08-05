@@ -5,8 +5,31 @@
     <link rel="self" type="application/atom+xml" href="https://bricklaying.art/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://bricklaying.art"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2026-06-29T00:00:00+00:00</updated>
+    <updated>2026-08-05T00:00:00+00:00</updated>
     <id>https://bricklaying.art/atom.xml</id>
+    <entry xml:lang="en">
+        <title>A Sound of Grundher</title>
+        <published>2026-08-05T00:00:00+00:00</published>
+        <updated>2026-08-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bricklaying.art/posts/blooosh/"/>
+        <id>https://bricklaying.art/posts/blooosh/</id>
+        
+        <content type="html" xml:base="https://bricklaying.art/posts/blooosh/">&lt;p&gt;play journal - will not be revised (maybe (maybe))&lt;&#x2F;p&gt;
+&lt;p&gt;the amount of times ‘otogirisou’ has been written in the screen for the first 15 screens is very pumping and hyping&lt;&#x2F;p&gt;
+&lt;p&gt;one of these two is probably a ghost already or cursed, curses are not tripped upon, but slowly ingested over trauma-blasts&lt;&#x2F;p&gt;
+&lt;p&gt;in this game you will be owned by &#x2F;&#x2F;&lt;span class=&quot;sc-cycle&quot; data-words=&#x27;[&amp;quot;snakes&amp;quot;,&amp;quot;a mummy&amp;quot;,&amp;quot;a living armor&amp;quot;,&amp;quot;vines&amp;quot;]&#x27; data-index=&quot;0&quot; &gt;snakes&lt;&#x2F;span&gt;&#x2F;&#x2F;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Sparks, fizzling, screed</title>
         <published>2026-06-29T00:00:00+00:00</published>

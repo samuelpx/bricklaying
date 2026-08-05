@@ -13,6 +13,10 @@
         <loc>https://bricklaying.art/posts/</loc>
     </url>
     <url>
+        <loc>https://bricklaying.art/posts/blooosh/</loc>
+        <lastmod>2026-08-05</lastmod>
+    </url>
+    <url>
         <loc>https://bricklaying.art/posts/intro/</loc>
         <lastmod>2026-05-28</lastmod>
     </url>
@@ -28,6 +32,9 @@
     </url>
     <url>
         <loc>https://bricklaying.art/themes/initiative/</loc>
+    </url>
+    <url>
+        <loc>https://bricklaying.art/themes/play/</loc>
     </url>
     <url>
         <loc>https://bricklaying.art/themes/speed/</loc>
