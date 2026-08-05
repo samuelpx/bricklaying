@@ -42,6 +42,13 @@ note = "cannery, bribery"
 
 [[themes]]
 
+slug = "play"
+name = "The Crashing, The Melding, The Frying"
+span = true
+note = "what is there to discover"
+
+[[themes]]
+
 slug = "initiative"
 name = "Initiative"
 span = true
